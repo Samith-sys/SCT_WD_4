@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FOCUSBOARD | To-Do App</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="style.css">
+</head>
+
+
+<body>
+
+    <div class="page-glow glow-one"></div>
+    <div class="page-glow glow-two"></div>
+
+
+    <main class="container">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div class="brand">
+
+                <div class="brand-mark">
+                    F
+                </div>
+
+                <div>
+                    <h1>FOCUSBOARD</h1>
+                    <p>PERSONAL PRODUCTIVITY</p>
+                </div>
+
+            </div>
+
+
+            <div class="date-box">
+
+                <span id="dayName">
+                    MONDAY
+                </span>
+
+                <strong id="currentDate">
+                    01 JAN 2026
+                </strong>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+
+        <section class="dashboard">
+
+            <div class="welcome">
+
+                <span class="mini-label">
+                    MY WORKSPACE
+                </span>
+
+                <h2>
+                    Stay focused.<br>
+                    <span>Get things done.</span>
+                </h2>
+
+                <p>
+                    Organize your daily tasks and keep track
+                    of everything that matters.
+                </p>
+
+            </div>
+
+
+            <div class="statistics">
+
+                <div class="stat">
+
+                    <span>TOTAL</span>
+
+                    <strong id="totalTasks">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>ACTIVE</span>
+
+                    <strong id="activeTasks">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>DONE</span>
+
+                    <strong id="completedTasks">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ADD TASK -->
+
+        <section class="add-section">
+
+            <div class="section-title">
+
+                <span class="number">
+                    01
+                </span>
+
+                <div>
+                    <span>CREATE</span>
+                    <h3>New Task</h3>
+                </div>
+
+            </div>
+
+
+            <form id="taskForm">
+
+                <div class="input-main">
+
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="What needs to be done?"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="add-button"
+                    >
+                        ADD TASK
+                    </button>
+
+                </div>
+
+
+                <div class="task-options">
+
+                    <div class="option">
+
+                        <label for="taskDate">
+                            DATE
+                        </label>
+
+                        <input
+                            type="date"
+                            id="taskDate"
+                        >
+
+                    </div>
+
+
+                    <div class="option">
+
+                        <label for="taskTime">
+                            TIME
+                        </label>
+
+                        <input
+                            type="time"
+                            id="taskTime"
+                        >
+
+                    </div>
+
+
+                    <div class="option">
+
+                        <label for="taskPriority">
+                            PRIORITY
+                        </label>
+
+                        <select id="taskPriority">
+
+                            <option value="low">
+                                Low
+                            </option>
+
+                            <option value="medium"
+                                    selected>
+                                Medium
+                            </option>
+
+                            <option value="high">
+                                High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- TASKS -->
+
+        <section class="tasks-section">
+
+            <div class="tasks-header">
+
+                <div class="section-title">
+
+                    <span class="number">
+                        02
+                    </span>
+
+                    <div>
+                        <span>YOUR LIST</span>
+                        <h3>Tasks</h3>
+                    </div>
+
+                </div>
+
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search tasks..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- FILTERS -->
+
+            <div class="filters">
+
+                <button
+                    class="filter active"
+                    data-filter="all"
+                >
+                    ALL
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="active"
+                >
+                    ACTIVE
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="completed"
+                >
+                    COMPLETED
+                </button>
+
+            </div>
+
+
+            <!-- TASK LIST -->
+
+            <div
+                class="task-list"
+                id="taskList"
+            ></div>
+
+
+            <!-- EMPTY STATE -->
+
+            <div
+                class="empty-state"
+                id="emptyState"
+            >
+
+                <div class="empty-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    Nothing here yet
+                </h3>
+
+                <p>
+                    Add your first task above and start
+                    organizing your day.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <span>
+                FOCUSBOARD
+            </span>
+
+            <span>
+                PLAN • PRIORITIZE • COMPLETE
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- EDIT MODAL -->
+
+    <div
+        class="modal"
+        id="editModal"
+    >
+
+        <div class="modal-box">
+
+            <div class="modal-header">
+
+                <div>
+                    <span>EDIT TASK</span>
+
+                    <h3>
+                        Update task
+                    </h3>
+                </div>
+
+                <button
+                    id="closeModal"
+                    class="close-btn"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <input
+                type="text"
+                id="editTaskInput"
+                placeholder="Task name"
+            >
+
+
+            <div class="edit-options">
+
+                <div>
+
+                    <label>
+                        DATE
+                    </label>
+
+                    <input
+                        type="date"
+                        id="editDate"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        TIME
+                    </label>
+
+                    <input
+                        type="time"
+                        id="editTime"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <label>
+                PRIORITY
+            </label>
+
+            <select id="editPriority">
+
+                <option value="low">
+                    Low
+                </option>
+
+                <option value="medium">
+                    Medium
+                </option>
+
+                <option value="high">
+                    High
+                </option>
+
+            </select>
+
+
+            <button
+                id="saveEdit"
+                class="save-button"
+            >
+                SAVE CHANGES
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
